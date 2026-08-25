@@ -1,1 +1,24 @@
-d
+body {
+            background-color: lightgray;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: darkblue;
+        }
+
+        h2 {
+            color: darkgreen;
+        }
+
+        h3 {
+            color: darkred;
+        }
+
+        p {
+            color: black;
+        }
+
+        a {
+            color: blue;
+        }
