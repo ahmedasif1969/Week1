@@ -6,6 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <style>
+        /* Base Reset */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: system-ui, sans-serif; background: #f4f4f6; color: #333; line-height: 1.6; }
+
+        /* Typography & Spacing helpers */
+        header, nav, main, aside, footer, article { padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+
+        /* 1. Header & Navigation */
+        header { background: #1e293b; color: white; text-align: center; }
+        nav { background: #3b82f6; display: flex; gap: 20px; justify-content: center; }
+        nav a { color: white; text-decoration: none; font-weight: bold; }
+        nav a:hover { text-decoration: underline; font-weight: lighter; }
+
+        /* 2. THE FLEXBOX LAYOUT CONTAINER */
+        /* We use a generic 'div' here because it serves purely for CSS layout alignment */
+        .layout-wrapper {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto 15px auto;
+            padding: 0 10px;
+        }
+
+        /* 3. Main Content Area (Takes 3x space) */
+        main { background: white; flex: 3; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        article { background: #f8fafc; border: 1px solid #e2e8f0; }
+
+        /* 4. Sidebar Area (Takes 1x space) */
+        aside { background: #e2e8f0; flex: 1; height: fit-content; }
+
+        /* 5. Footer */
+        footer { background: #1e293b; color: white; text-align: center; margin-bottom: 0; }
+
+        /* 6. Responsive Breakdown for Mobile Devices */
+        @media (max-width: 768px) {
+            .layout-wrapper {
+                flex-direction: column; /* Stacks sidebar under content on mobile */
+            }
+        }
     </style>
 </head>
 
