@@ -28,7 +28,13 @@
 
             <article>
                 <h3>HTML Tutorial</h3>
-                <div id="player"></div>
+                <iframe id="player"
+                    width="560"
+                    height="315"
+                    src="https://www.youtube-nocookie.com/embed/UB1O30fR-EE"
+                    title="HTML tutorial video"
+                    allowfullscreen>
+                </iframe>
             </article>
         </main>
 
@@ -38,16 +44,6 @@
         </aside>
     </div>
 
-    <script src="https://www.youtube.com/iframe_api"></script>
-    <script>
-        function onYouTubeIframeAPIReady() {
-            new YT.Player("player", {
-                height: "315",
-                width: "560",
-                videoId: "UB1O30fR-EE"
-            });
-        }
-    </script>
 </body>
 
 </html>
