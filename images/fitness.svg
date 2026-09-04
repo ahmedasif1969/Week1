@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="220" viewBox="0 0 400 220">
-    <rect width="400" height="220" fill="#dbeafe"/>
-    <circle cx="200" cy="75" r="28" fill="#3b82f6"/>
-    <path d="M200 105 L200 165 M165 125 L235 125 M200 165 L170 200 M200 165 L230 200" stroke="#1e293b" stroke-width="12" fill="none"/>
-    <text x="20" y="35" font-family="Arial" font-size="24" fill="#1e293b">Life Fitness App</text>
-</svg>
