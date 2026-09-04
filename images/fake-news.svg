@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="220" viewBox="0 0 400 220">
+    <rect width="400" height="220" fill="#e2e8f0"/>
+    <rect x="65" y="50" width="270" height="140" fill="white" stroke="#1e293b" stroke-width="5"/>
+    <text x="85" y="85" font-family="Arial" font-size="24" font-weight="bold" fill="#1e293b">NEWS</text>
+    <line x1="85" y1="110" x2="315" y2="110" stroke="#3b82f6" stroke-width="10"/>
+    <line x1="85" y1="140" x2="280" y2="140" stroke="#94a3b8" stroke-width="8"/>
+    <line x1="85" y1="165" x2="300" y2="165" stroke="#94a3b8" stroke-width="8"/>
+    <text x="110" y="35" font-family="Arial" font-size="22" fill="#1e293b">Fake News Detector</text>
+</svg>

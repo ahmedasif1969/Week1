@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>My Demos</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,31 +13,41 @@
     <header>
         <h1>Welcome to My Website</h1>
     </header>
+
     <nav>
         <a href="index.html">Home</a>
         <a href="projects.html">Projects</a>
         <a href="demos.html">Demos</a>
         <a href="contact.html">Contact</a>
     </nav>
+
     <div class="layout-wrapper">
         <main>
-            <h2>Latest Happenings!</h2>
-            <p>Learning Web development with modern technologies!</p>
+            <h2>My Demo</h2>
+            <p>This video is about HTML for beginners.</p>
 
             <article>
-                <h3>An Independent Article</h3>
-                <p>This sub-container holds an independent post or widget that makes sense on its own.</p>
-                <p>My garden is blooming with new flowers and fruits!</p>
-                <a href="#">Read More</a>
+                <h3>HTML Tutorial</h3>
+                <div id="player"></div>
             </article>
         </main>
+
         <aside>
             <h3>Sidebar</h3>
-            <p>Related links, Youtube videos links go here.</p>
+            <p>Watch my selected web development video here.</p>
         </aside>
-
     </div>
 
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        function onYouTubeIframeAPIReady() {
+            new YT.Player("player", {
+                height: "315",
+                width: "560",
+                videoId: "UB1O30fR-EE"
+            });
+        }
+    </script>
 </body>
 
 </html>

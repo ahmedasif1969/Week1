@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Storage API</title>
+</head>
+
+<body>
+    <h1>Web Storage API</h1>
+    <p>Save your name and age in the browser using <code>localStorage</code>.</p>
+
+    <label for="name">Name:</label>
+    <input id="name" type="text" placeholder="Enter your name">
+    <button id="saveButton" type="button">Save Name</button>
+    <button id="clearButton" type="button">Clear Name</button>
+    <label for="age">Age:</label>
+    <input id="age" type="number" min="1" placeholder="Enter your age">
+    <button id="saveButton2" type="button">Save Age</button>
+    <button id="clearButton2" type="button">Clear Age</button>
+
+    <p id="message" aria-live="polite" style="white-space: pre-line;"></p>
+
+    <script>
+        const nameInput = document.getElementById("name");
+        const message = document.getElementById("message");
+        const saveButton = document.getElementById("saveButton");
+        const clearButton = document.getElementById("clearButton");
+        const ageInput = document.getElementById("age");
+        const saveAgeButton = document.getElementById("saveButton2");
+        const clearAgeButton = document.getElementById("clearButton2");
+
+        function showSavedName() {
+            const savedName = localStorage.getItem("studentName");
+
+            if (savedName) {
+                nameInput.value = savedName;
+                message.textContent = `Welcome back, ${savedName}!`;
+            } else {
+                message.textContent = "No name has been saved yet.";
+            }
+        }
+
+        saveButton.addEventListener("click", () => {
+            const name = nameInput.value.trim();
+
+            if (name) {
+                localStorage.setItem("studentName", name);
+                message.textContent = `Your name, ${name}, has been saved.`;
+            } else {
+                message.textContent = "Please enter your name before saving.";
+            }
+        });
+
+        clearButton.addEventListener("click", () => {
+            localStorage.removeItem("studentName");
+            nameInput.value = "";
+            message.textContent = "The saved name has been cleared.";
+            nameInput.focus();
+        });
+
+        function showSavedAge() {
+            const savedAge = localStorage.getItem("studentAge");
+
+            if (savedAge) {
+                ageInput.value = savedAge;
+                message.textContent += `\nYour saved age is ${savedAge}.`;
+            }
+        }
+
+        saveAgeButton.addEventListener("click", () => {
+            const age = ageInput.value;
+
+            if (age && Number(age) > 0) {
+                localStorage.setItem("studentAge", age);
+                message.textContent = `Your age, ${age}, has been saved.`;
+            } else {
+                message.textContent = "Please enter a valid age before saving.";
+            }
+        });
+
+        clearAgeButton.addEventListener("click", () => {
+            localStorage.removeItem("studentAge");
+            ageInput.value = "";
+            message.textContent = "The saved age has been cleared.";
+            ageInput.focus();
+        });
+
+        showSavedName();
+        showSavedAge();
+    </script>
+</body>
+
+</html>
