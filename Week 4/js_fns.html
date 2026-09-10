@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <h1>JavaScript Functions and Calculator</h1>
+
+    <p>Enter two numbers:</p>
+
+    <input type="number" id="num1" placeholder="First number">
+    <input type="number" id="num2" placeholder="Second number">
+
+    <br><br>
+
+    <button id="addBtn">Add</button>
+    <button id="subtractBtn">Subtract</button>
+    <button id="multiplyBtn">Multiply</button>
+    <button id="divideBtn">Divide</button>
+
+    <h2 id="result">Result:</h2>
+
+    <script>
+
+        // ==========================================
+        // 1. BASIC FUNCTION
+        // ==========================================
+
+        function greet(name) {
+            return "Hello, " + name + "!";
+        }
+
+        console.log(greet("Alice"));
+        console.log(greet("Bob"));
+
+
+        // ==========================================
+        // 2. CALCULATOR FUNCTIONS
+        // Function Expression + Rest Parameter
+        // ==========================================
+
+        const add = function(...numbers) {
+            return numbers.reduce((total, num) => total + num, 0);
+        };
+
+
+        // Arrow Function + Rest Parameter
+        const subtract = (...numbers) => {
+            return numbers.slice(1).reduce(
+                (total, num) => total - num,
+                numbers[0]
+            );
+        };
+
+
+        // Arrow Function + Rest Parameter
+        const multiply = (...numbers) => {
+            return numbers.reduce(
+                (total, num) => total * num,
+                1
+            );
+        };
+
+
+        // Arrow Function + Rest Parameter
+        const divide = (...numbers) => {
+            if (numbers.slice(1).includes(0)) {
+                return "Cannot divide by zero";
+            }
+
+            return numbers.slice(1).reduce(
+                (total, num) => total / num,
+                numbers[0]
+            );
+        };
+
+
+        // ==========================================
+        // 3. CALLBACK FUNCTION
+        // ==========================================
+
+        function calculate(operation) {
+
+            const num1 = Number(document.getElementById("num1").value);
+            const num2 = Number(document.getElementById("num2").value);
+
+            const result = operation(num1, num2);
+
+            document.getElementById("result").innerHTML =
+                "Result: " + result;
+
+            console.log("Result:", result);
+        }
+
+
+        // ==========================================
+        // 4. BUTTON CLICK EVENTS
+        // Using callback functions
+        // ==========================================
+
+        document.getElementById("addBtn").addEventListener(
+            "click",
+            () => calculate(add)
+        );
+
+        document.getElementById("subtractBtn").addEventListener(
+            "click",
+            () => calculate(subtract)
+        );
+
+        document.getElementById("multiplyBtn").addEventListener(
+            "click",
+            () => calculate(multiply)
+        );
+
+        document.getElementById("divideBtn").addEventListener(
+            "click",
+            () => calculate(divide)
+        );
+
+
+        // ==========================================
+        // 5. CALLING THE FUNCTIONS
+        // ==========================================
+
+        console.log("Addition:", add(10, 5, 2));
+        console.log("Subtraction:", subtract(10, 5, 2));
+        console.log("Multiplication:", multiply(10, 5, 2));
+        console.log("Division:", divide(10, 5, 2));
+
+
+        // ==========================================
+        // 6. ARROW FUNCTION
+        // ==========================================
+
+        const square = x => x * x;
+
+        console.log("Square:", square(6));
+
+
+        // ==========================================
+        // 7. DEFAULT PARAMETERS
+        // ==========================================
+
+        function multiplyDefault(a, b = 2) {
+            return a * b;
+        }
+
+        console.log(
+            "Multiply with default:",
+            multiplyDefault(4)
+        );
+
+        console.log(
+            "Multiply with custom value:",
+            multiplyDefault(4, 5)
+        );
+
+
+        // ==========================================
+        // 8. REST PARAMETERS
+        // ==========================================
+
+        function sum(...numbers) {
+            return numbers.reduce(
+                (total, num) => total + num,
+                0
+            );
+        }
+
+        console.log(
+            "Rest sum:",
+            sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+        );
+
+
+        // ==========================================
+        // 9. CALLBACK FUNCTION
+        // ==========================================
+
+        const numbers = [1, 2, 3, 4];
+
+        const doubled = numbers.map(function(n) {
+            return n * 2;
+        });
+
+        console.log("Doubled numbers:", doubled);
+
+
+        const names = ["Ali", "Ayesha", "Zain"];
+
+        const greetings = names.map(
+            name => "Hello " + name
+        );
+
+        console.log(greetings);
+
+
+        // ==========================================
+        // 10. HIGHER-ORDER FUNCTION
+        // ==========================================
+
+        function applyOperation(arr, operation) {
+            return arr.map(operation);
+        }
+
+        console.log(
+            "Operation result:",
+            applyOperation([10, 20, 30], n => n + 5)
+        );
+
+
+        // ==========================================
+        // 11. CLOSURE
+        // ==========================================
+
+        function outer() {
+
+            let count = 0;
+
+            return function inner() {
+                count++;
+                return count;
+            };
+        }
+
+        const counter = outer();
+
+        console.log("Counter 1:", counter());
+        console.log("Counter 2:", counter());
+        console.log("Counter 3:", counter());
+
+
+        // ==========================================
+        // 12. RECURSION
+        // ==========================================
+
+        function factorial(n) {
+
+            if (n <= 1)
+                return 1;
+
+            return n * factorial(n - 1);
+        }
+
+        console.log(
+            "Factorial of 5:",
+            factorial(5)
+        );
+
+
+        // ==========================================
+        // 13. IIFE
+        // ==========================================
+
+        (function() {
+            console.log("This runs immediately.");
+        })();
+
+
+        // ==========================================
+        // 14. OBJECT METHOD
+        // ==========================================
+
+        const person = {
+
+            name: "Ayesha",
+
+            sayHi() {
+                return "Hi, I am " + this.name;
+            }
+        };
+
+        console.log(person.sayHi());
+
+
+        // ==========================================
+        // 15. CONSTRUCTOR FUNCTION
+        // ==========================================
+
+        function Student(name, grade) {
+
+            this.name = name;
+            this.grade = grade;
+        }
+
+        Student.prototype.describe = function() {
+
+            return this.name +
+                   " has grade " +
+                   this.grade;
+        };
+
+        const student1 =
+            new Student("Zain", "A");
+
+        console.log(student1.describe());
+
+
+        // ==========================================
+        // 16. CLASS
+        // ==========================================
+
+        class Car {
+
+            constructor(make, model) {
+
+                this.make = make;
+                this.model = model;
+            }
+
+            describe() {
+
+                return `${this.make} ${this.model}`;
+            }
+        }
+
+        const car1 =
+            new Car("Toyota", "Corolla");
+
+        console.log(car1.describe());
+
+    </script>
+
+</body>
+</html>
